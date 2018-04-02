@@ -1,10 +1,37 @@
 .header {
   background-color: blue;
   color: white;
+  display: block;
   height: 75px;
   left: 0;
   position: absolute;
   text-align: center;
   top: 0;
+  width: 100%;
+}
+
+.tab {
+  background-color: lightblue;
+  border: 2px solid black;
+  display: inline-block;
+  margin-top: 65px;
+  text-align: center;
+  width: 32%;
+}
+
+.body {
+  display: block;
+  width: 100%
+  background-color: gray;
+}
+
+.footer {
+  background-color: blue;
+  bottom: 0;
+  color: white;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  text-align: center;
   width: 100%;
 }
