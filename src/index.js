@@ -1,32 +1,32 @@
 import header from "./header";
-import { menuTab, menuBody } from "./menu";
+import { bodyDiv, menuContent, aboutContent, contactContent } from "./body";
+import menuTab from "./menu";
 import about from "./about";
-import { contactTab, contactBody } from "./contact";
+import contactTab from "./contact";
 import footer from "./footer";
 
 const content = document.querySelector(".content");
+const sections = [header(), menuTab(), about(), contactTab(), bodyDiv(), footer()];
 
-const headerComponent = header();
-const menuComponent = menuTab();
-const menuBodyComponent = menuBody();
-const aboutComponent = about();
-const contactComponent = contactTab();
-const contactBodyComponent = contactBody();
-const footerComponent = footer();
+sections.forEach( (DomElement) => {
+  content.appendChild(DomElement);
+})
 
-content.appendChild(headerComponent);
-content.appendChild(menuComponent);
-content.appendChild(aboutComponent);
-content.appendChild(contactComponent);
-content.appendChild(menuBodyComponent);
-content.appendChild(footerComponent);
+const body = document.querySelector('.body');
+body.innerHTML = menuContent();
 
 const tabs = document.querySelectorAll('.tab');
-
 tabs.forEach((tab) => {
- tab.addEventListener('click', () => {
-   const body = document.querySelector('.body');
-   body.remove();
-   const tabID = tab.id;
- }) 
+ tab.addEventListener('click', (event) => {
+
+   let bodyFunctions = {
+     menu: menuContent(),
+     about: aboutContent(),
+     contact: contactContent()
+   }
+
+   body.innerHTML = "";
+   let bodyContent = bodyFunctions[event.target.id]
+   body.innerHTML = bodyContent;
+ })
 })
